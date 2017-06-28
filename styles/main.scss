@@ -1,0 +1,127 @@
+$font-dark-grey: #566679;
+$input-grey: #787878;
+$background-green: #ccffcc;
+$logo-green: #3c763d;
+$check-green: #80ff80;
+$lighter-red: #ffb3b3;
+$darker-red: #ff3434;
+$baby-blue: #ccccff;
+$darker-blue: #8080ff;
+$white: #ffffff;
+
+body {
+  color: $font-dark-grey;
+}
+
+// ===== Header Section =====
+header {
+  background: $background-green;
+
+  .logo {
+    display: inline-block;
+    color: $logo-green;
+
+    @media screen and (max-width: 400px) {
+      font-size: 26px;
+    }
+  }
+
+  .the {
+    font-family: 'Open Sans Condensed', sans-serif;
+  }
+
+  .marketplace {
+    font-family: 'Gloria Hallelujah', cursive;
+  }
+
+  .logout {
+    display: inline-block;
+    float: right;
+    margin-top: 30px;
+    cursor: pointer;
+  }
+}
+
+// ===== Content Section =====
+.content {
+  // overriding bootstrap's styling
+  table tbody {
+    th, td {
+      vertical-align: middle;
+      text-align: center;
+      white-space: normal;
+    }
+  }
+
+  th span {
+    cursor: pointer;
+  }
+
+  td span {
+    display: inline-block;
+    min-width: 152px;
+    margin-top: 3px;
+  }
+
+  td input {
+    text-align: center;
+    font-style: italic;
+    color: $input-grey;
+  }
+
+  .listing {
+    margin-top: 25px;
+    margin-bottom: 20px;
+  }
+
+  .validate {
+    border-color: $lighter-red;
+  }
+
+  .icon-filter {
+    opacity: .5;
+    &.selected {
+      opacity: 1;
+    }
+  }
+
+  .icon-edit {
+    background: $baby-blue;
+
+    &:hover {
+      background: $darker-blue;
+      color: $white;
+    }
+  }
+
+  .icon-check {
+    background: $check-green;
+  }
+
+  .icon-remove {
+    text-align: center;
+    color: $lighter-red;
+    cursor: pointer;
+
+    &:hover {
+      color: $darker-red;
+    }
+  }
+
+  .add-member-btn {
+    margin-bottom: 50px;
+  }
+}
+
+// ===== Footer Section =====
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: $background-green;
+
+  p {
+    padding: 10px 0;
+    margin: 0;
+  }
+}

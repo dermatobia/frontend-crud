@@ -1,0 +1,70 @@
+body {
+  color: #566679; }
+
+header {
+  background: #ccffcc; }
+  header .logo {
+    display: inline-block;
+    color: #3c763d; }
+    @media screen and (max-width: 400px) {
+      header .logo {
+        font-size: 26px; } }
+  header .the {
+    font-family: 'Open Sans Condensed', sans-serif; }
+  header .marketplace {
+    font-family: 'Gloria Hallelujah', cursive; }
+  header .logout {
+    display: inline-block;
+    float: right;
+    margin-top: 30px;
+    cursor: pointer; }
+
+.content table tbody th, .content table tbody td {
+  vertical-align: middle;
+  text-align: center;
+  white-space: normal; }
+.content th span {
+  cursor: pointer; }
+.content td span {
+  display: inline-block;
+  min-width: 152px;
+  margin-top: 3px; }
+.content td input {
+  text-align: center;
+  font-style: italic;
+  color: #787878; }
+.content .listing {
+  margin-top: 25px;
+  margin-bottom: 20px; }
+.content .validate {
+  border-color: #ffb3b3; }
+.content .icon-filter {
+  opacity: .5; }
+  .content .icon-filter.selected {
+    opacity: 1; }
+.content .icon-edit {
+  background: #ccccff; }
+  .content .icon-edit:hover {
+    background: #8080ff;
+    color: #ffffff; }
+.content .icon-check {
+  background: #80ff80; }
+.content .icon-remove {
+  text-align: center;
+  color: #ffb3b3;
+  cursor: pointer; }
+  .content .icon-remove:hover {
+    color: #ff3434; }
+.content .add-member-btn {
+  margin-bottom: 50px; }
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: #ccffcc; }
+  footer p {
+    padding: 10px 0;
+    margin: 0; }
+
+/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Simple FrontEnd CRUD with Angular</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
+
+  <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="styles/main.css">
+
+  <script type="text/javascript" src="node_modules/angular/angular.min.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/controller.js"></script>
+  <script src="js/storage-service.js"></script>
+</head>
+
+<body ng-app="crudApp" ng-controller="CrudController">
+
+  <header class="container-fluid">
+    <div class="container">
+      <h2 class="logo">
+        <span class="the">the</span>
+        <span class="marketplace">MarketPlace</span>
+      </h2>
+      <p class="logout">Logout</p>
+    </div>
+  </header>
+
+  <section class="content container">
+    <div class="intro">
+      <h2>Your Household</h2>
+      <p>Welcome to the Marketplace! Review your household below.</p>
+    </div>
+
+    <div class="listing container table-responsive">
+      <table class="table table-striped">
+        <tr class="table-head">
+          <th>
+            <span ng-click="sortBy('fullname')">Full Name
+              <i  ng-class="propertyName === 'fullname' ? 'selected' : 'inactive'"
+                  class="icon-filter glyphicon glyphicon-filter">
+              </i>
+            </span>
+          </th>
+
+          <th>
+            <span ng-click="sortBy('description')">Description
+              <i  ng-class="propertyName === 'description' ? 'selected' : 'inactive'"
+                  class="icon-filter glyphicon glyphicon-filter">
+              </i>
+            </span>
+          </th>
+
+          <th>
+            <span ng-click="sortBy('favFruit')">Favorite Fruit
+              <i  ng-class="propertyName === 'favFruit' ? 'selected' : 'inactive'"
+                  class="icon-filter glyphicon glyphicon-filter">
+              </i>
+            </span>
+          </th>
+
+          <th>Edit</th>
+
+          <th>Remove</th>
+        </tr>
+
+        <tr class="table-row" ng-repeat="member in members | orderBy:propertyName:reverse">
+          <td class="fullname">
+            <span ng-show="!member.editing">{{member.fullname}}</span>
+            <input  ng-show="member.editing"
+                    ng-model="member.fullname"
+                    ng-class="{validate: !member.fullname}">
+            </input>
+          </td>
+
+          <td class="description">
+            <span ng-show="!member.editing">{{member.description}}</span>
+            <input  ng-show="member.editing"
+                    ng-model="member.description"
+                    ng-class="{validate: !member.description}">
+            </input>
+          </td>
+
+          <td class="favorite-fruit">
+            <span ng-show="!member.editing">{{member.favFruit}}</span>
+            <input  ng-show="member.editing"
+                    ng-model="member.favFruit"
+                    ng-class="{validate: !member.favFruit}">
+            </input>
+          </td>
+
+          <td class="edit">
+            <button ng-show="!member.editing"
+                    ng-click="toggleEdit(member)"
+                    class="btn icon-edit glyphicon glyphicon-pencil">
+            </button>
+            <button ng-show="member.editing"
+                    ng-click="toggleEdit(member)"
+                    ng-disabled="validateFields(member)"
+                    class="btn icon-check glyphicon glyphicon-check">
+            </button>
+          </td>
+
+          <td ng-click="removeMember(member)"
+              class="icon-remove col-md-1 glyphicon glyphicon-remove-circle">
+          </td>
+        </tr>
+      </table>
+    </div> <!-- end of listing div -->
+
+    <button ng-click="addMember()"
+            class="add-member-btn btn btn-primary">
+            Add New Member
+    </button>
+  </section><!-- end of content section -->
+
+  <footer>
+    <div class="container">
+      <p>The Marketplace is a work in progress.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
